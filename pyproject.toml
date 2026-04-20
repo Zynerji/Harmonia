@@ -3,8 +3,8 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "harmonia"
-version = "0.1.0"
+name = "harmonia-dkg"
+version = "0.1.1"
 description = "Multi-agent consensus and lineage for OriginTrail DKG Knowledge Assets — Ed25519 M-of-N co-signing layer on top of Mnemosyne"
 readme = "README.md"
 license = { text = "MIT" }
@@ -22,15 +22,12 @@ classifiers = [
     "Topic :: Security :: Cryptography",
 ]
 dependencies = [
-    "mnemosyne @ git+https://github.com/Zynerji/Mnemosyne@main",
+    "mnemosyne-dkg>=0.1.0",
     "cryptography>=42",
 ]
 
 [project.optional-dependencies]
 dev = ["pytest>=8"]
-
-[tool.hatch.metadata]
-allow-direct-references = true
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/harmonia"]

@@ -54,10 +54,12 @@ The design is deliberately narrow. Harmonia does one thing — get multiple agen
 ## Install
 
 ```bash
-pip install git+https://github.com/Zynerji/Harmonia
+pip install harmonia-dkg
 ```
 
-Requires Python 3.11+. Pulls [Mnemosyne](https://github.com/Zynerji/Mnemosyne) as a direct dependency, plus [`cryptography`](https://cryptography.io/) for Ed25519.
+Requires Python 3.11+. Pulls [`mnemosyne-dkg`](https://pypi.org/project/mnemosyne-dkg/) as a dependency, plus [`cryptography`](https://cryptography.io/) for Ed25519.
+
+The Python import name is unchanged — `import harmonia` as always. The PyPI distribution is `harmonia-dkg` for consistency with `mnemosyne-dkg`.
 
 For development with tests:
 
@@ -67,8 +69,6 @@ cd Harmonia
 pip install -e ".[dev]"
 pytest
 ```
-
-> Harmonia is not yet on PyPI. A `pip install harmonia` target will land alongside Mnemosyne v0.2.
 
 ---
 
@@ -439,6 +439,7 @@ The test suite is hermetic. Every signature, consensus check, lineage record, an
 | Version | Scope                                                                                              | Status  |
 |---------|----------------------------------------------------------------------------------------------------|---------|
 | v0.1.0  | Ed25519 signing, M-of-N consensus, in-memory lineage, in-process relay, consensus-gated anchor     | shipped |
+| v0.1.1  | PyPI release as `harmonia-dkg`; dependency on `mnemosyne-dkg>=0.1.0` (no more git+ direct refs)     | shipped |
 | v0.2    | Persistent lineage backends (SQLite, Postgres); signer-set registries                              | planned |
 | v0.3    | FROST threshold signatures — aggregated Schnorr instead of a list of individual Ed25519 sigs        | planned |
 | v0.4    | Network relays: libp2p gossip adapter, optional NATS/Redis adapters                                 | planned |

@@ -1,0 +1,40 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "harmonia"
+version = "0.1.0"
+description = "Multi-agent consensus and lineage for OriginTrail DKG Knowledge Assets — Ed25519 M-of-N co-signing layer on top of Mnemosyne"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Christian Knopp" }]
+requires-python = ">=3.11"
+keywords = ["dkg", "origintrail", "consensus", "threshold-signing", "ed25519", "ai-memory", "multi-agent", "mnemosyne"]
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Security :: Cryptography",
+]
+dependencies = [
+    "mnemosyne @ git+https://github.com/Zynerji/Mnemosyne@main",
+    "cryptography>=42",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/harmonia"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
